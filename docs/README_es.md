@@ -27,7 +27,7 @@ Esta primera prueba de concepto conecta un contrato inteligente desplegado en **
 | Componente | Descripción |
 |------------|-------------|
 | `contracts/TurnLed.sol` | Contrato inteligente que emite eventos para encender/apagar el LED. |
-| `esp32/` | Código en PlatformIO que consulta eventos y controla el LED. |
+| `esp32/BorwiCore/` | Código en PlatformIO que consulta eventos y controla el LED. |
 
 ---
 

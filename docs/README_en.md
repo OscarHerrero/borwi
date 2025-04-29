@@ -27,7 +27,7 @@ This initial proof of concept links a smart contract deployed on **Base Testnet*
 | Component | Description |
 |-----------|-------------|
 | `contracts/TurnLed.sol` | Smart contract that emits events to turn the LED on/off. |
-| `esp32/` | PlatformIO code that polls events and controls the LED. |
+| `esp32/BorwiCore/` | PlatformIO code that polls events and controls the LED. |
 
 ---
 
