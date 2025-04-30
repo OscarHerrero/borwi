@@ -1,61 +1,85 @@
 # Borwi (Based On Real World Interaction)
 
-**Borwi** is an experimental project aiming to connect the blockchain world with physical real-world interactions.
+**Borwi** is an experimental project that connects smart contracts on the blockchain with physical real-world interactions.
 
-This initial proof of concept links a smart contract deployed on **Base Testnet** with an **ESP32** device that listens to blockchain events to turn a LED on or off.
+Currently, Borwi is a **vending machine controlled by smart contracts** deployed on the **Base** blockchain. Users can scan a QR code and pay with cryptocurrency to receive a physical product in real-time.
 
 ---
 
-## 📋 Project Goals
+## 🎯 Project Goals
 
-- Demonstrate direct interaction between a blockchain contract and a physical device.
-- Create a simple and robust architecture for future experiments based on on-chain events.
-- Learn and document best practices for hybrid blockchain + IoT projects.
+- Bridge blockchain and IoT into a direct and tangible experience.
+- Build a fully autonomous vending machine with no intermediaries or traditional interfaces.
+- Listen to **on-chain** events from WiFi-connected physical devices.
+- Generate QR codes on screen with payment instructions encoded as `ethereum:` URIs.
+- Use smart contracts to govern pricing, product logic, and payments.
 
 ---
 
 ## ⚙️ Technologies Used
 
-- **Solidity** — for developing the smart contract (`TurnLed.sol`).
-- **PlatformIO** — for programming the **ESP32** as a listener and actuator.
-- **Base Testnet** — for deploying the smart contract.
+| Technology         | Purpose                                                  |
+|--------------------|----------------------------------------------------------|
+| **Solidity**        | Smart contract logic (`VendingMachine.sol`).            |
+| **ESP32 + ST7735**  | Microcontroller + TFT screen for displaying menus and QR codes. |
+| **WebSockets + JSON-RPC** | Real-time communication with the blockchain (Base).  |
+| **PlatformIO (Arduino)** | Development environment for the ESP32.               |
+| **QRcode_ST7735**   | Library to render QR codes directly on the TFT screen.  |
 
 ---
 
-## 📦 Main Components
+## 📦 Project Structure
 
-| Component | Description |
-|-----------|-------------|
-| `contracts/TurnLed.sol` | Smart contract that emits events to turn the LED on/off. |
-| `esp32/BorwiCore/` | PlatformIO code that polls events and controls the LED. |
+| Folder                 | Description                                                     |
+|------------------------|-----------------------------------------------------------------|
+| `contracts/VendingMachine.sol` | Smart contract with products, prices, and purchase logic via `receive()` |
+| `esp32/BorwiCore/`     | Full C++ code for the ESP32. Manages WiFi, screen, QR, and on-chain events. |
+| `assets/`              | Icons, mockups, and visual resources.                           |
 
 ---
 
 ## 🛠️ How It Works
 
-1. **Deploy** the `TurnLed` smart contract on **Base Testnet**.
-2. The contract allows any user to send transactions to **turn on** or **turn off** a LED.
-3. The **ESP32**, connected to the internet, **polls** a blockchain RPC service to **listen to events** emitted by `TurnLed`.
-4. When an event is detected, the ESP32 **turns the connected LED on or off** accordingly.
+1. The smart contract `VendingMachine.sol` is deployed on **Base Sepolia**.
+2. A user scans the **QR code** shown on the device’s TFT screen.
+3. That QR contains an `ethereum:` URI with the exact value to pay.
+4. The user pays directly from their wallet (e.g. MetaMask mobile).
+5. The contract emits a `ProductPurchased(...)` event.
+6. The ESP32, connected via WiFi, **listens to that event** via WebSocket.
+7. Upon detection, it updates the screen and activates a **servo** to dispense the product.
 
 ---
 
-## 🚀 Initial Roadmap
+## 🧩 Physical Components
 
-- [ ] Create the `TurnLed.sol` smart contract.
-- [ ] Program the ESP32 as an event listener via HTTP polling.
-- [ ] Set up minimal secure connection infrastructure.
-- [ ] Document the complete deployment and operation workflow.
-- [ ] Test with multiple types of physical actuators.
+- 🧠 ESP32 DevKit
+- 🎨 TFT ST7735 160x128 screen
+- 🔘 Physical buttons (up/down/confirm)
+- 🔊 Optional buzzer
+- ⚙️ 360º servo for dispensing
+- 🔌 Stable power supply
 
 ---
 
-## 📚 Important Notes
+## 🚀 Roadmap
 
-- The project is currently in an **experimental phase**.
-- Always use **test accounts** and operate on **Base Testnet**.
-- Initially, the ESP32 will **poll** for new events every few seconds.
-- The system is easily scalable for multiple types of actuators in future versions.
+- [x] `VendingMachine.sol` contract with products and payments.
+- [x] QR code generation scannable by MetaMask mobile.
+- [x] WebSocket event listening from ESP32.
+- [x] Integrated TFT screen with navigable menu.
+- [x] Visual confirmation after payment.
+- [ ] Physical product dispensing via servo.
+- [ ] Animations, sound, and UI enhancements (LVGL phase).
+- [ ] Multilingual version.
+- [ ] Migration to mainnet or local production setup.
+
+---
+
+## 📝 Notes
+
+- This project is in an **experimental stage** but **fully functional**.
+- Perfect for demos and educational exploration of Web3 + hardware.
+- Products are identified by their exact `wei` price, which determines which item is purchased.
 
 ---
 
