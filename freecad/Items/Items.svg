@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="25.5mm" height="31.5mm" viewBox="0 0 25.5 31.5" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<g id="Box" transform="translate(0.250000,15.250000) scale(1,-1)">
+<path id="Box_f0000"  d="M 0.0 15.0 L 0.0 0.0 L 0.0 0.0 L 0.0 15.0 L 0.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box_f0001"  d="M 12.0 0.0 L 12.0 0.0 L 12.0 15.0 L 12.0 15.0 L 12.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box_f0002"  d="M 0.0 0.0 L 0.0 0.0 L 12.0 0.0 L 12.0 0.0 L 0.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box_f0003"  d="M 12.0 15.0 L 0.0 15.0 L 0.0 15.0 L 12.0 15.0 L 12.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box_f0004"  d="M 12.0 0.0 L 0.0 0.0 L 0.0 15.0 L 12.0 15.0 L 12.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box_f0005"  d="M 0.0 15.0 L 0.0 0.0 L 12.0 0.0 L 12.0 15.0 L 0.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<title>b'Cubo'</title>
+</g>
+<g id="Box001" transform="translate(0.250000,15.250000) scale(1,-1)">
+<path id="Box001_f0000"  d="M 13.0 15.0 L 13.0 0.0 L 13.0 0.0 L 13.0 15.0 L 13.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box001_f0001"  d="M 25.0 0.0 L 25.0 0.0 L 25.0 15.0 L 25.0 15.0 L 25.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box001_f0002"  d="M 13.0 0.0 L 13.0 0.0 L 25.0 0.0 L 25.0 0.0 L 13.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box001_f0003"  d="M 25.0 15.0 L 13.0 15.0 L 13.0 15.0 L 25.0 15.0 L 25.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box001_f0004"  d="M 25.0 0.0 L 13.0 0.0 L 13.0 15.0 L 25.0 15.0 L 25.0 0.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box001_f0005"  d="M 13.0 15.0 L 13.0 0.0 L 25.0 0.0 L 25.0 15.0 L 13.0 15.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<title>b'Cubo001'</title>
+</g>
+<g id="Box002" transform="translate(0.250000,15.250000) scale(1,-1)">
+<path id="Box002_f0000"  d="M 0.0 -1.0 L 0.0 -16.0 L 0.0 -16.0 L 0.0 -1.0 L 0.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box002_f0001"  d="M 12.0 -16.0 L 12.0 -16.0 L 12.0 -1.0 L 12.0 -1.0 L 12.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box002_f0002"  d="M 0.0 -16.0 L 0.0 -16.0 L 12.0 -16.0 L 12.0 -16.0 L 0.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box002_f0003"  d="M 12.0 -1.0 L 0.0 -1.0 L 0.0 -1.0 L 12.0 -1.0 L 12.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box002_f0004"  d="M 12.0 -16.0 L 0.0 -16.0 L 0.0 -1.0 L 12.0 -1.0 L 12.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box002_f0005"  d="M 0.0 -1.0 L 0.0 -16.0 L 12.0 -16.0 L 12.0 -1.0 L 0.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<title>b'Cubo002'</title>
+</g>
+<g id="Box003" transform="translate(0.250000,15.250000) scale(1,-1)">
+<path id="Box003_f0000"  d="M 13.0 -1.0 L 13.0 -16.0 L 13.0 -16.0 L 13.0 -1.0 L 13.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box003_f0001"  d="M 25.0 -16.0 L 25.0 -16.0 L 25.0 -1.0 L 25.0 -1.0 L 25.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box003_f0002"  d="M 13.0 -16.0 L 13.0 -16.0 L 25.0 -16.0 L 25.0 -16.0 L 13.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box003_f0003"  d="M 25.0 -1.0 L 13.0 -1.0 L 13.0 -1.0 L 25.0 -1.0 L 25.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box003_f0004"  d="M 25.0 -16.0 L 13.0 -16.0 L 13.0 -1.0 L 25.0 -1.0 L 25.0 -16.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<path id="Box003_f0005"  d="M 13.0 -1.0 L 13.0 -16.0 L 25.0 -16.0 L 25.0 -1.0 L 13.0 -1.0 Z " stroke="#191919" stroke-width="0.35 px" style="stroke-width:0.35;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:square;fill:#cccccc;fill-opacity:1.0;fill-rule: evenodd"/>
+<title>b'Cubo003'</title>
+</g>
+</svg>
