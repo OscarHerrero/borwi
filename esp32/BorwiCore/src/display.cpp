@@ -30,12 +30,12 @@ void drawMenu(const String items[], const String prices[], int selectedIndex, in
     if (i == selectedIndex)
     {
       tft.setTextColor(ST77XX_GREEN);
-      tft.print("> "); // Ícono ASCII para seleccionado
+      tft.print("> ");
     }
     else
     {
       tft.setTextColor(ST77XX_BLACK);
-      tft.print(""); // Espaciado para alinear con los seleccionados
+      tft.print("");
     }
 
     tft.setTextColor(i == selectedIndex ? ST77XX_BLUE : ST77XX_WHITE);
@@ -64,8 +64,8 @@ void showQR(const String &url)
 
   tft.setTextColor(ST77XX_BLACK);
   tft.setTextSize(1);
-  tft.setCursor(25, 115);
-  tft.println("DOWN para cancelar");
+  tft.setCursor(2, 115);
+  tft.println("PRESS ANY BUTTON TO CANCEL");
 }
 
 void showMessage(const String &msg, uint16_t color, uint8_t size)
@@ -99,22 +99,3 @@ void logLine(const String &msg, uint16_t color)
   }
 }
 
-void drawHeaderStatus(bool wifi, bool ws, bool items)
-{
-  // Barra superior negra
-  tft.fillRect(0, 0, 160, 10, ST77XX_BLACK);
-  tft.setTextSize(1);
-  tft.setCursor(2, 1);
-
-  // WiFi
-  tft.setTextColor(wifi ? ST77XX_GREEN : ST77XX_RED);
-  tft.print("WiFi ");
-
-  // WebSocket
-  tft.setTextColor(ws ? ST77XX_GREEN : ST77XX_RED);
-  tft.print("WS ");
-
-  // Productos
-  tft.setTextColor(items ? ST77XX_GREEN : ST77XX_RED);
-  tft.print("P ");
-}

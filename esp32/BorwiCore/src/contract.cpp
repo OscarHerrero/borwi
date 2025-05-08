@@ -4,6 +4,7 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include "configuration.h"
+#include "display.h"
 
 #define MAX_ITEMS 8
 
@@ -41,7 +42,7 @@ bool loadItems(String items[], String prices[], int &itemCount)
     Serial.println("🔄 Iniciando carga de productos...");
     String result;
 
-    // Llamada para getItemCount
+    // getItemCount
     if (!ethCall("0x7749cf23", result))
     {
         Serial.println("❌ Error al obtener getItemCount");
@@ -92,6 +93,7 @@ bool loadItems(String items[], String prices[], int &itemCount)
         {
             prices[i] = "0x0";
         }
+        logLine("Item: " + items[i] + " " + weiToEth(prices[i]), ST77XX_WHITE);
     }
 
     return true;
