@@ -7,6 +7,7 @@ contract VendingMachine {
     struct Item {
         string name;
         uint256 price;
+        uint256 amount;
     }
 
     Item[] public items;
@@ -22,14 +23,14 @@ contract VendingMachine {
     constructor() {
         owner = msg.sender;
 
-        addItem("Water", 0.001 ether);
-        addItem("Juice", 0.0015 ether);
-        addItem("Coffee", 0.002 ether);
-        addItem("Cookies", 0.0008 ether);
+        addItem("Gold", 0.01 ether, 1);
+        addItem("Silver", 0.001 ether, 1);
+        addItem("Beer", 0.0005 ether, 1);
+        addItem("Popcorn", 0.0004 ether, 1);
     }
 
-    function addItem(string memory name, uint256 price) public onlyOwner {
-        items.push(Item(name, price));
+    function addItem(string memory name, uint256 price, uint256 amount) public onlyOwner {
+        items.push(Item(name, price, amount));
         priceToIndex[price] = items.length - 1;
     }
 
@@ -45,6 +46,11 @@ contract VendingMachine {
     function getItemPrice(uint256 index) external view returns (uint256) {
         require(index < items.length, "Index out of bounds");
         return items[index].price;
+    }
+
+    function getItemAmount(uint256 index) external view returns (uint256) {
+        require(index < items.length, "Index out of bounds");
+        return items[index].amount;
     }
 
     receive() external payable {

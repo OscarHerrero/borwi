@@ -69,12 +69,8 @@ contract VendingMachine {
         return itemCounter;
     }
 
-    function getItems() external view returns (Item[] memory) {
-        Item[] memory items = new Item[](itemCounter);
-        for (uint256 i = 0; i < itemCounter; i++) {
-            items[i] = itemsByIndex[i];
-        }
-        return items;
+    function getItem(uint256 index) external view returns (Item memory) {
+        return itemsByIndex[index];
     }
     // ---------------------------------------------------------------------
 
