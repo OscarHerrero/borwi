@@ -2,7 +2,7 @@
 
 **Borwi** es un proyecto experimental que conecta contratos inteligentes en blockchain con interacciones físicas del mundo real.
 
-Actualmente, Borwi es una **máquina expendedora controlada por contratos inteligentes** desplegados en la blockchain **Base**. El usuario puede escanear un código QR y pagar con criptomonedas para obtener un producto físico en tiempo real.
+Para la prueba de concepto de borwi se ha creado una **máquina expendedora controlada por contratos inteligentes** desplegados en la blockchain **Base Sepolia**. El usuario puede escanear un código QR y pagar con criptomonedas para obtener un producto físico en tiempo real.
 
 ---
 
@@ -20,9 +20,9 @@ Actualmente, Borwi es una **máquina expendedora controlada por contratos inteli
 
 | Tecnología | Uso |
 |------------|-----|
-| **Solidity** | Lógica del contrato inteligente `VendingMachine.sol`. |
+| **Solidity** | Lógica del contrato inteligente `VendingMachineV2.sol`. |
 | **ESP32 + ST7735** | Microcontrolador + pantalla TFT para mostrar menú y QR. |
-| **WebSockets + JSON-RPC** | Comunicación en tiempo real con la blockchain (Base). |
+| **WebSockets + JSON-RPC** | Comunicación en tiempo real con la blockchain (Base Sepolia). |
 | **PlatformIO (Arduino)** | Entorno de desarrollo para el ESP32. |
 | **QRcode_ST7735** | Librería de generación de códigos QR directamente en la pantalla TFT. |
 
@@ -32,15 +32,15 @@ Actualmente, Borwi es una **máquina expendedora controlada por contratos inteli
 
 | Carpeta | Descripción |
 |--------|-------------|
-| `contracts/VendingMachine.sol` | Contrato inteligente con productos, precios y lógica de compra vía `receive()` |
+| `contracts/VendingMachineV2.sol` | Contrato inteligente con productos, precios y lógica de compra vía `receive()` |
 | `esp32/BorwiCore/` | Código completo en C++ para el ESP32. Gestiona red, pantalla, QR y eventos on-chain. |
-| `assets/` | Iconos, mockups y recursos visuales. |
+| `assets/` | Recursos visuales. |
 
 ---
 
 ## 🛠️ ¿Cómo funciona?
 
-1. El contrato inteligente `VendingMachine.sol` está desplegado en **Base Sepolia**.
+1. El contrato inteligente `VendingMachineV2.sol` está desplegado en **Base Sepolia**.
 2. Un usuario escanea el **código QR** mostrado en la pantalla TFT del dispositivo.
 3. Ese QR contiene una URI `ethereum:` con el valor exacto del producto a pagar.
 4. El usuario paga directamente desde su wallet (ej. MetaMask mobile).
@@ -55,23 +55,20 @@ Actualmente, Borwi es una **máquina expendedora controlada por contratos inteli
 - 🧠 ESP32 DevKit
 - 🎨 Pantalla TFT ST7735 160x128
 - 🔘 Botones físicos (subir/bajar/aceptar)
-- 🔊 Buzzer opcional
 - ⚙️ Servo 360º para dispensado
-- 🔌 Fuente de alimentación estable
+- 🔌 Fuente de alimentación
 
 ---
 
 ## 🚀 Roadmap
 
-- [x] Contrato `VendingMachine.sol` con productos y pagos.
+- [x] Contrato `VendingMachineV2.sol` con productos y pagos.
 - [x] Generación de QR legible desde MetaMask mobile.
 - [x] Escucha de eventos via WebSocket en ESP32.
 - [x] Integración de pantalla TFT con menú navegable.
 - [x] Confirmación visual tras el pago.
-- [ ] Control de dispensado físico con servo.
-- [ ] Animaciones, sonidos y mejoras gráficas (fase LVGL).
-- [ ] Versión multilingüe.
-- [ ] Migración a mainnet o producción en red local.
+- [x] Control de dispensado físico con servo.
+- [x] Animaciones y mejoras gráficas.
 
 ---
 
