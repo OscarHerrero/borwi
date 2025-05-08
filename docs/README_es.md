@@ -1,4 +1,4 @@
-# Borwi (Based On Real World Interaction)
+# Borwi (Blockchain Operated Real World Interactions)
 
 **Borwi** es un proyecto experimental que conecta contratos inteligentes en blockchain con interacciones físicas del mundo real.
 
