@@ -7,4 +7,6 @@ String pad64(String hex);
 String hexToAscii(const String &hex);
 String weiToEth(const String &hexWei);
 
+void waitNonBlocking(unsigned long durationMs);
+
 #endif

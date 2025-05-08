@@ -1,4 +1,7 @@
+#include <Arduino.h>
 #include "utils.h"
+#include "websocket.h"
+#include "screensaver.h"
 
 String pad64(String hex)
 {
@@ -29,4 +32,15 @@ String weiToEth(const String &hexWei)
     char buffer[20];
     snprintf(buffer, sizeof(buffer), "%.4f ETH", eth);
     return String(buffer);
+}
+
+void waitNonBlocking(unsigned long durationMs)
+{
+    unsigned long start = millis();
+    while (millis() - start < durationMs)
+    {
+        updateWebSocket();   // sigue recibiendo eventos
+        resetScreensaverTimer(); // resetea el temporizador del salvapantallas
+        yield();             // cede tiempo a otras tareas
+    }
 }
