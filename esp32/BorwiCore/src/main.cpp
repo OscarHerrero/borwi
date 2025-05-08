@@ -1,17 +1,16 @@
 #include <WiFi.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
+#include <QRcode_ST7735.h>
 #include "configuration.h"
 #include "state.h"
-
+#include "utils.h"
 #include "display.h"
 #include "contract.h"
 #include "dispenser.h"
 #include "buttons.h"
 #include "websocket.h"
-#include <Adafruit_GFX.h>
-#include <Adafruit_ST7735.h>
-#include <QRcode_ST7735.h>
-
-#define LED_PIN 26
+#include "screensaver.h"
 
 Adafruit_ST7735 tft = Adafruit_ST7735(5, 2, 4); // CS, DC, RST
 QRcode_ST7735 qrcode(&tft);
@@ -20,8 +19,6 @@ String items[8];
 String prices[8];
 int itemCount = 0;
 int selectedIndex = 0;
-bool wifiOK = false;
-bool itemsOK = false;
 
 void setup()
 {
@@ -31,7 +28,6 @@ void setup()
   initDispensers();
   initDisplay();
   resetLog();
-  pinMode(LED_PIN, OUTPUT);
 
   logLine("Conectando WiFi...", ST77XX_CYAN);
   WiFi.begin(ssid, password);
@@ -48,7 +44,7 @@ void setup()
   logLine("WiFi conectado", ST77XX_GREEN);
   delay(300);
 
-  logLine("Cargando productos...", ST77XX_CYAN);
+  logLine("Consultando productos...", ST77XX_CYAN);
   if (!loadItems(items, prices, itemCount) || itemCount == 0)
   {
     logLine("Error al cargar productos", ST77XX_RED);
@@ -60,29 +56,42 @@ void setup()
   logLine("Iniciando WebSocket...", ST77XX_CYAN);
   delay(1000);
   initWebSocket();
-  delay(1000);
+  waitNonBlocking(1000);
   logLine("WebSocket listo", ST77XX_GREEN);
-  delay(1000);
-  logLine("Iniciando...", ST77XX_ORANGE);
-  delay(1000);
-  digitalWrite(LED_PIN, HIGH);
+  waitNonBlocking(1000);
+  logLine("Iniciando pantalla...", ST77XX_CYAN);
+  waitNonBlocking(1000);
+  initScreensaver();
   drawMenu(items, prices, selectedIndex, itemCount);
 }
 
 void loop()
 {
   updateWebSocket();
+  updateScreensaver();
 
   if (itemCount == 0)
     return;
 
   ButtonAction action = readButton();
 
+  if (isScreensaverActive())
+  {
+    if (readButton() != NONE)
+    {
+      resetScreensaverTimer();
+      drawMenu(items, prices, selectedIndex, itemCount);
+    }
+    return;
+  }
+
   if (isAwaitingPayment())
   {
     // Cancelar y volver al menú
-    if (action == MOVE_DOWN)
+    if (action == MOVE_DOWN || action == SELECT_OK || action == MOVE_UP)
     {
+      showMessage("Pago cancelado", ST77XX_RED, 1);
+      waitNonBlocking(1000);
       setAwaitingPayment(false);
       drawMenu(items, prices, selectedIndex, itemCount);
     }
@@ -108,5 +117,10 @@ void loop()
   }
   default:
     break;
+  }
+
+  if (action != NONE)
+  {
+    resetScreensaverTimer();
   }
 }
