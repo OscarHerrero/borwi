@@ -9,7 +9,7 @@
 #define MAX_ITEMS 8
 
 const String getItemSelector = "0x3129e773";      // getItem(uint256)
-const String getItemCountSelector = "0xa9c92fc0"; // getitemCounter()
+const String getItemCountSelector = "0x6d6d00ed"; // public itemCounter
 
 bool ethCall(String data, String &result)
 {
