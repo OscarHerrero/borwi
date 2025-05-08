@@ -1,5 +1,11 @@
+// Sources flattened with hardhat v2.22.16 https://hardhat.org
+
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+
+// File contracts/VendingMachine.sol
+
+// Original license: SPDX_License_Identifier: MIT
+pragma solidity ^0.8.0;
 
 /*
  * @title VendingMachine
@@ -64,11 +70,7 @@ contract VendingMachine {
         itemCounter--;
     }
 
-    // The ESP32 uses these 2 functions to load products into the machine.
-    function getitemCounter() external view returns (uint256) {
-        return itemCounter;
-    }
-
+    // The ESP32 use function to load products into the machine.
     function getItem(uint256 index) external view returns (Item memory) {
         return itemsByIndex[index];
     }
