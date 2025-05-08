@@ -29,7 +29,7 @@ void setup()
   initDisplay();
   resetLog();
 
-  logLine("Conectando WiFi...", ST77XX_CYAN);
+  logLine("Connecting WiFi...", ST77XX_CYAN);
   WiFi.begin(ssid, password);
   unsigned long start = millis();
   while (WiFi.status() != WL_CONNECTED && millis() - start < 10000)
@@ -41,25 +41,25 @@ void setup()
     return;
   }
 
-  logLine("WiFi conectado", ST77XX_GREEN);
+  logLine("WiFi connected", ST77XX_GREEN);
   delay(300);
 
-  logLine("Consultando productos...", ST77XX_CYAN);
+  logLine("Searching products...", ST77XX_CYAN);
   if (!loadItems(items, prices, itemCount) || itemCount == 0)
   {
     logLine("Error al cargar productos", ST77XX_RED);
     return;
   }
-
-  logLine("Productos cargados: " + String(itemCount), ST77XX_GREEN);
+  delay(500);
+  logLine("Products loaded: " + String(itemCount), ST77XX_GREEN);
   delay(1000);
-  logLine("Iniciando WebSocket...", ST77XX_CYAN);
+  logLine("Starting WebSocket...", ST77XX_CYAN);
   delay(1000);
   initWebSocket();
   waitNonBlocking(1000);
-  logLine("WebSocket listo", ST77XX_GREEN);
+  logLine("WebSocket ready", ST77XX_GREEN);
   waitNonBlocking(1000);
-  logLine("Iniciando pantalla...", ST77XX_CYAN);
+  logLine("Initializing screen...", ST77XX_CYAN);
   waitNonBlocking(1000);
   initScreensaver();
   drawMenu(items, prices, selectedIndex, itemCount);
@@ -90,8 +90,8 @@ void loop()
     // Cancelar y volver al menú
     if (action == MOVE_DOWN || action == SELECT_OK || action == MOVE_UP)
     {
-      showMessage("Pago cancelado", ST77XX_RED, 1);
-      waitNonBlocking(1000);
+      showMessage("Operation canceled...", ST77XX_RED, 1);
+      waitNonBlocking(2000);
       setAwaitingPayment(false);
       drawMenu(items, prices, selectedIndex, itemCount);
     }
