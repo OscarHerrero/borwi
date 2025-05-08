@@ -8,6 +8,9 @@
 
 #define MAX_ITEMS 8
 
+const String getItemSelector = "0x3129e773";      // getItem(uint256)
+const String getItemCountSelector = "0xa9c92fc0"; // getitemCounter()
+
 bool ethCall(String data, String &result)
 {
     WiFiClientSecure secureClient;
@@ -42,8 +45,7 @@ bool loadItems(String items[], String prices[], int &itemCount)
     Serial.println("🔄 Iniciando carga de productos...");
     String result;
 
-    // getItemCount
-    if (!ethCall("0x7749cf23", result))
+    if (!ethCall(getItemCountSelector, result))
     {
         Serial.println("❌ Error al obtener getItemCount");
         return false;
@@ -60,40 +62,47 @@ bool loadItems(String items[], String prices[], int &itemCount)
     {
         Serial.printf("🔹 Cargando producto #%d\n", i);
         String indexPadded = pad64(String(i, HEX));
+        String callData = getItemSelector + indexPadded;
 
-        // getItem
         String itemResult;
-        if (ethCall("0x3129e773" + indexPadded, itemResult))
-        {
-            if (itemResult != "0x")
-            {
-                String hex = itemResult.substring(130);
-                hex.trim();
-                items[i] = hexToAscii(hex);
-            }
-            else
-            {
-                items[i] = "Item" + String(i + 1);
-            }
-        }
-        else
+        if (!ethCall(callData, itemResult))
         {
             items[i] = "Item" + String(i + 1);
-        }
-        Serial.println("📦 Nombre: " + items[i]);
-
-        // getItemPrice
-        String priceResult;
-        if (ethCall("0x4c4df870" + indexPadded, priceResult))
-        {
-            prices[i] = priceResult;
-            Serial.println("💰 Precio: " + weiToEth(priceResult));
-        }
-        else
-        {
             prices[i] = "0x0";
+            continue;
         }
-        logLine("Item: " + items[i] + " " + weiToEth(prices[i]), ST77XX_WHITE);
+
+        itemResult.replace("0x", "");
+        Serial.println("🔸 Resultado crudo:");
+        Serial.println(itemResult);
+
+        if (itemResult.length() < 320)
+        {
+            items[i] = "Desconocido";
+            prices[i] = "0x0";
+            Serial.println("⚠️ Respuesta demasiado corta");
+            continue;
+        }
+
+        // Layout de struct Item
+        String priceHex = itemResult.substring(128, 192);
+        String lenHex = itemResult.substring(256, 320);
+        int nameLen = strtol(lenHex.c_str(), nullptr, 16);
+        String nameHex = itemResult.substring(320, 320 + nameLen * 2);
+        String amountHex = itemResult.substring(192, 256);
+
+        Serial.println("🧩 priceHex: " + priceHex);
+        Serial.println("🧩 amountHex: " + amountHex);
+        Serial.println("🧩 lenHex: " + lenHex);
+        Serial.println("🧩 nameHex: " + nameHex);
+
+        prices[i] = "0x" + priceHex;
+        items[i] = hexToAscii(nameHex);
+
+        Serial.println("📦 " + items[i]);
+        Serial.println("💰 Precio: " + weiToEth(prices[i]));
+        Serial.println("🔑 Cantidad: " + String(strtol(amountHex.c_str(), nullptr, 16)));
+        logLine(items[i] + " " + weiToEth(prices[i]) + "  *" + String(strtol(amountHex.c_str(), nullptr, 16)), ST77XX_WHITE);
     }
 
     return true;
