@@ -20,7 +20,7 @@ const char *ws_server = "base-sepolia-rpc.publicnode.com";
 uint16_t ws_port = 443;
 
 // Dirección del contrato
-const char *contractAddress = "0xd728340CB04D8460C08C7b816F6b697BFAe8Dd8A";
+const char *contractAddress = "0xaeb3e98F0084963FB0255cA20017A3C252540a55";
 
 // Topic del evento que queremos escuchar
 const char *topicPurchase = "0x2d41f8480fdac6135eb040c2b8368310e7898b7ed50dab30b99985ea2bdef234";
