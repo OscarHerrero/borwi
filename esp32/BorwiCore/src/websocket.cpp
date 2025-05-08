@@ -63,7 +63,7 @@ void handleIncomingMessage(uint8_t *payload, size_t length)
 void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 {
     Serial.printf("📡 WebSocket evento: %d\n", type);
-    
+
     if (type == WStype_CONNECTED)
     {
         Serial.println("✅ WebSocket conectado, suscribiéndose a eventos...");
@@ -76,6 +76,14 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
     else if (type == WStype_TEXT)
     {
         handleIncomingMessage(payload, length);
+    }
+    else if (type == WStype_DISCONNECTED)
+    {
+        Serial.println("❌ WebSocket desconectado, intentando reconectar...");
+    }
+    else if (type == WStype_ERROR)
+    {
+        Serial.println("❌ Error en WebSocket");
     }
 }
 
