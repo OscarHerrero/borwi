@@ -27,7 +27,7 @@ void initDispensers()
 
 void dispenseProduct(int itemIndex)
 {
-    showMessage("Pago recibido...", ST77XX_GREEN, 1);
+    showMessage("Payment received...", ST77XX_GREEN, 1);
     delay(1000);
 
     Servo *servoToUse = nullptr;
@@ -53,14 +53,14 @@ void dispenseProduct(int itemIndex)
 
     if (servoToUse != nullptr)
     {
-        showMessage("Dispensando producto...", ST77XX_GREEN, 1);
+        showMessage("Dispensing product...", ST77XX_GREEN, 1);
         servoToUse->write(100);
         delay(5000); // Duración del giro
         servoToUse->write(95);
         Serial.println("✅ Producto dispensado.");
     }
 
-    showMessage("Gracias!", ST77XX_GREEN);
+    showMessage("Thank you!", ST77XX_GREEN);
     delay(3000);
     drawMenu(items, prices, selectedIndex, itemCount);
 }
