@@ -13,6 +13,7 @@ pragma solidity ^0.8.0;
  * The contract keeps track of items and their prices, and allows the owner to withdraw the balance.
  */
 
+// Address: 0xaeb3e98F0084963FB0255cA20017A3C252540a55 (Base Sepolia)
 contract VendingMachine {
     address public owner;
 
